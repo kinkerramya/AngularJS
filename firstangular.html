@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="" ng-init="countries=[{locale:'en-us',country:'United States'},{locale:'en-uk',country:'United Kingdom'},{locale:'en-fr',country:'France'}]">
+            <p>Enter your name:<input type="text" ng-model="name"</p>
+                <p>Hello <span ng-bind="name"></span></p>
+            <p>list of the languages and the countries are:</p>
+            <ol>
+                <li ng-repeat="c in countries">
+                    {{"country:"+c.country+";locale:"+c.locale}}
+                </li>
+            </ol>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="myapp" ng-controller="mycontroller">
+            <student name="M"></student>
+            <student name="N"></student>
+        </div>
+        <script>
+            var app=angular.module("myapp",[]);
+            app.directive('student', function() {
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollno}}</b>";
+            
+            directive.scope = {
+               student : "=name"
+            }
+            
+            directive.compile = function(element, attributes) {
+               element.css("border", "1px solid #cccccc");
+               
+               var linkFunction = function($scope, element, attributes) {
+                  element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.Rollnum+"</b><br/>");
+                  element.css("background-color", "#ff00ff");
+               }
+               return linkFunction;
+            }
+            
+            return directive;
+         });
+            app.controller("mycontroller",function($scope){
+                $scope.M={};
+                $scope.M.name="Ramya";
+                $scope.M.Rollnum=1;
+                $scope.N={};
+                $scope.N.name="Soumya";
+                $scope.N.Rollnum=2;
+            })
+        </script>
+    </body>
+
+</html>

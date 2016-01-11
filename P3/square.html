@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="E://AngularJS/P3/squaremodel.js"></script>
+        <script src="E://AngularJS/P3/squarecontroller.js"></script>
+
+    </head>
+    <body>
+        <h1>Get the square of a number</h1>
+        <div ng-app="myapp" ng-controller="mycontroller">
+            <p>Enter a number:</p><input type="number" ng-model="number"><br>
+            <button ng-click="compute()">Caluculate</button>
+            <p>Result:{{result}}</p>
+        </div>
+    </body>
+</html>

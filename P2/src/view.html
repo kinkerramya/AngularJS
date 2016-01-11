@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title> Program practice 2</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="E://AngularJS/P2/src/model.JS"></script>
+        <script src="E://AngularJS/P2/src/controller.JS"></script>
+        <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+    </head>
+    <body>
+        <h1>Enter Your Details</h1>
+        <div ng-app="myapp" ng-controller="mycontroller">
+            <form name="myform" novalidate>
+            <table>
+                <tr>
+                    <td>
+                        <p>Enter Your FirstName:</p>
+                    </td>
+                    <td>
+                        <input name="firstname" type="text" ng-model="firstname" required>
+                        <span style="color:red" ng-show="myform.firstname.$dirty && myform.firstname.$invalid">
+                        <span ng-show="myform.firstname.$error.required">First name is required</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Enter Your LastName:</p>
+                    </td>
+                    <td>
+                        <input name="lastname" type="text" ng-model="lastname" required>
+                        <span style="color:red" ng-show="myform.lastname.$dirty && myform.lastname.$invalid">
+                        <span ng-show="myform.lastname.$error.required">Lastname is required</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Enter Your Email-id:</p>
+                    </td>
+                    <td>
+                        <input name="email" type="email" ng-model="email" required>
+                        <span style="color:red" ng-show="myform.email.$dirty && myform.email.$invalid">
+                        <span ng-show="myform.email.$error.required">Email is required</span>
+                        <span ng-show="myform.email.$error.email">Enter a valid email-id</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <button ng-click="reset()">Reset</button>
+                    </td>
+                    <td>
+                        <button ng-disabled="myform.firstname.$dirty && myform.firstname.$invalid || myform.lastname.$dirty && myform.lastname.$invalid || myform.email.$dirty && myform.email.$invalid" ng-click="submit()">Submit</button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+        
+        
+    </body>
+</html>

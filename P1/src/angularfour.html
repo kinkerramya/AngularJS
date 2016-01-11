@@ -1,0 +1,77 @@
+<html>
+    <head>
+                 <title> Angular JS practice</title>
+                <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+                <script src="E://AngularJS/P1/src/mainApp.js"></script>
+                <script src="E://AngularJS/P1/src/controller.js"></script>
+         <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+
+    </head>
+    <body>
+        <div ng-app="myapplication" ng-controller="mycontroller">
+            <input type="checkbox" ng-model="click">Click Me<br>
+            <div ng-show="click">
+            <table>
+                <tr>
+                    <td>
+                       <p> Enter Your Firstname: </p>
+                    </td>
+                     <td>
+                       <input type="text" ng-model="student.firstname">
+                    </td>
+                <tr>
+                    <td>
+                        <p>Enter your lastname:</p>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="student.lastname"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        fullname:
+                    </td>
+                    <td>
+                        {{student.fullname()}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Subjects:
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>name</th>
+                                <th>marks</th>
+                            </tr>
+                            <tr ng-repeat="s in student.subjects">
+                                <td>
+                                    {{s.name}}
+                                </td>
+                                <td>
+                                    {{s.marks}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+                </div>
+        </div>
+    </body>
+</html>
